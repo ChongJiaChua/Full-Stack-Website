@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Administrator Dashboard</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <meta name = "description" content="Dashboard for staff members and Admins to view"/>
+        <link rel="stylesheet" type="text/css" href="/style/style.css">
+        <link rel="stylesheet" type="text/css" href="/style/adminDashStyle.css">
+    </head>
+
+    <header>
+      <%=erb :admin_header%>
+    </header>
+
+    <body>
+        <h1>Administrator Dashboard</h1>
+
+
+        <div  id="listDiv">
+            <h3>Top Users this week:</h3>
+            <ul>
+                <li>Top Writer: <%= @top_writer %> with a total of <%= @highest_written %> books written!</li>
+                <li>Top reader: <%= @top_reader %> with a total of <%= @highest_read %> books read!</li>
+                <li>Top subscribed: <%= @top_subscribed %> with a total of <%= @highest_subscribed %> followers!</li>
+            </ul>
+        </div>
+
+        <div id="modRequests">
+            <p>REWARD POPCORNS NOW!<p>
+            <form method="post" action="/add_popcorn">
+                <p>User: <input type="text" name="winner_user" value="<%= h @winner_user %>"></p>
+                <p>Popcorn amount: <input type="text" name="winner_popcorn" value="<%= h @winner_popcorn %>"></p>
+                <p><input type="submit" value="GIVE POPCORN"></p>
+
+                <% if !@user_error.nil? %>
+                    <br /><p><strong class="error"><%= @user_error %></strong></p>
+                <% end %>
+            </form>
+        </div>
+    </body>
+</html>

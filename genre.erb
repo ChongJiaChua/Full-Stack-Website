@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/style/base.css">
+        <title>Home</title>
+    </head>
+  <body>
+          <%= erb :genre_search %>
+
+    <% if @genre_results_exist %>
+      <h1><%= @genre %> <%= @language %> Stories</h1>
+        <ul>
+          <div class="story-container">
+            <% @genre_results.each do |story| %>
+              <div class="story-box">
+                <li><p><strong>Title:</strong> <a href="/reading_page?id=<%= story[:story_id] %>"><%= story[:title] %></a></p></li>
+                    <ul>
+                      <li>Genre : <%= story.genre %></li>
+                      <li>Author : <%= story.author %></li>
+                      <li>Cost : <%= story.cost %></li>
+                      <li>Likes : <%= story.likes %></li>
+                    <li>Dislikes : <%= story.dislikes %></li>
+                    </ul>
+              </div>
+            <% end %>
+          </div>
+        </ul>
+    <% else %>
+        <p>No <%= @genre.downcase %> stories found.</p>
+    <% end %>
+
+</body>
+</html>

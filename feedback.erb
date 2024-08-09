@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="style/feedback-style.css">   
+    <link rel="stylesheet" href="style/base.css">  
+  </head>
+  <body>
+  <header>
+    <%=erb :header%>
+  <header>
+  <% if !@form_was_submitted || @submission_error %> 
+    <h1>Feedback Form</h1>
+  <% end %>
+  <% if @form_was_submitted %>
+    <% if @submission_error %>
+      <p><strong class="error">Please provide your feedback or comment.</strong></p>
+    <% else %>
+      <h1 class="success">Success, thanks for your submission!</h1>
+    <% end %>
+  <% end %>
+  
+  <% if @submission_error %>
+    <p class="error"><strong><%= @submission_error %></strong></p>
+  <% end %>
+
+  <% if !@form_was_submitted || @submission_error %> 
+    <form name="feedback" action ="/feedback" method = post> 
+      <input type="hidden" name="story_id" value="<%= @story_id %>">  <!-- Reference the variable from the GET route -->
+      <input type="hidden" name="referrer" value="<%= @referrer %>">
+
+        <h3>Please give your honest feedback on the story you have read</h3><br>
+
+        <textarea class="largetextinput" name="feedback" rows="10" cols="50" placeholder="Write your feedback" ></textarea><br>
+
+        <label for="rating">How would you rate the story from 1-10?</label>
+        <select name="rating" id="rating">
+            <% (0..9).each do |i| %>
+                <option value="<%= i %>"><%= i %></option>
+            <% end %>
+            <option value="10">10</option>
+        </select><br>
+
+       <h3>Any suggestions on how the reader should improve their story?</h3>
+
+       <label for= "catagory">Select the catogary</label>
+        <select name="catagory" id="catagory">
+            <option value="Writing Style">Writing Style</option>
+            <option value="Plot">Plot</option>
+            <option value="Character Development">Character Development</option>
+            <option value="Pacing">Pacing</option>
+            <option value="Dialogue">Dialogue</option>
+            <option value="Consistency">Consistency</option>
+        </select><br>
+
+        <textarea class="largetextinput" name="suggestion" rows="10" cols="50" placeholder="Write your suggestions"></textarea><br>
+
+       <h3>Leave a comment</h3>
+
+       <textarea class="largetextinput" name="comments" rows="8" cols="50" placeholder="leave a comment..."></textarea><br>
+
+        
+        <input type="submit" value="Submit"> 
+    </form>
+  <% end %>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Create Poll</title>
+        <link rel="stylesheet" type="text/css" href="/style/style.css">
+        <link rel="stylesheet" type="text/css" href="/style/login-style.css">
+        <link rel="stylesheet" type="text/css" href="/style/base.css">
+        
+    </head>
+    <body>
+        <header>
+            <%=erb :header%>
+        </header>
+
+        <h1>Create Poll</h1>
+
+        <p><%= $notAuthorError %></p>
+
+        <form method = "post" action="/createpoll">
+            Title of Poll: <input type="text" placeholder="Enter Title" value="<%= h @title %>" name="title" required><br><br>
+            Story Title: <input list="stories" name="story" required>
+            <datalist id="stories">
+            <% Story.all.each do |story|%>
+                <option value="<%= story.story_id %>:<%= story.title %>">
+            <% end %>
+            </datalist>
+            <br>
+            <br>
+            Question 1: <input type="text" placeholder="Enter Question" value="<%= h @q1 %>" name="q1" required><br>
+            Answer 1: <input type="text" placeholder="Enter Answer" value="<%= h @a11 %>" name="a11" required>
+            Answer 2: <input type="text" placeholder="Enter Answer" value="<%= h @a21 %>" name="a21" required>
+            Answer 3: <input type="text" placeholder="Enter Answer" value="<%= h @a31 %>" name="a31" required><br>
+            <br><br>
+            Question 2: <input type="text" placeholder="Enter Question" value="<%= h @q2 %>" name="q2"><br>
+            Answer 1: <input type="text" placeholder="Enter Answer" value="<%= h @a12 %>" name="a12">
+            Answer 2: <input type="text" placeholder="Enter Answer" value="<%= h @a22 %>" name="a22">
+            Answer 3: <input type="text" placeholder="Enter Answer" value="<%= h @a33 %>" name="a32"><br>
+            <br><br>
+            Question 3: <input type="text" placeholder="Enter Question" value="<%= h @q3 %>" name="q3"><br>
+            Answer 1: <input type="text" placeholder="Enter Answer" value="<%= h @a13 %>" name="a13">
+            Answer 2: <input type="text" placeholder="Enter Answer" value="<%= h @a23 %>" name="a23">
+            Answer 3: <input type="text" placeholder="Enter Answer" value="<%= h @a33 %>" name="a33"><br>
+            <br>
+            <br>
+            <button type="submit" name="submit">Submit Form</button>
+        </form>
+
+    </body>
+<html>

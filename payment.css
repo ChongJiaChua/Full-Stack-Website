@@ -1,0 +1,38 @@
+p {
+    font-size: 20px;
+}
+
+.form_field {
+    background-color: #D5DFE5;
+    text-align: center;
+    width: 500px;
+    border: 5px solid #7F9172;
+}
+
+.premium_field {
+    background-color: #D5DFE5;
+    text-align: center;
+    width: 1000px;
+    border: 5px solid #7F9172;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    font-size: 16px;
+    text-align: center;
+    justify-self: right;
+}
+
+#grid-container>div {
+    padding: 5%;
+    justify-self: center;
+}
+
+.error {
+    color: red;
+}

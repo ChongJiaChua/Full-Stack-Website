@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Log In</title>
+        <link rel="stylesheet" type="text/css" href="/style/style.css">
+        <link rel="stylesheet" type="text/css" href="/style/login-style.css">
+        <link rel="stylesheet" type="text/css" href="/style/base.css">
+        
+    </head>
+    <body>
+        <header>
+            <%=erb :header%>
+        </header>
+        
+        <h1>Welcome</h1>
+        Here to log in or register? You've made it to right place!<br>
+        <br>
+        <div class="flexContainer">
+            <div id="logInScreen">
+                <h2>Log In</h2><br>
+                <p><%= @login_error%></p>
+                <form method="post" action="/login">
+                <!-- Log In form. Add variables to save details -->
+                <!-- check if username already exists -->
+                    <p>Username: <input type="text" placeholder="Enter Username" name="username" value="<%= h @username %>" required></p>
+                    <p>Password: <input type="password" placeholder="Enter Password" name="password" value="<%= h @password %>" required></p>
+                    <p><input type="submit" name="submitLog" value="Log In"></p>
+                </form>
+            </div>
+
+            <div id="registerScreen">
+                <h2>Register</h2><br>
+                <p>The username must be letters only.<br> <strong>Please choose a username carefully as you will not be able change it!</strong><br>
+                The password must contain:</p>
+                <ul>
+                    <li>A special character from this list: !, (, ), *</li><br>
+                    <li>A number that is not zero</li><br>
+                    <li>The password must be 8 characters or more</li>
+                </ul><br>
+
+                <p><%= @register_error%></p>
+                <form method="post" action="/register">
+                <!-- Register form. Add variables to save details -->
+                    <p>Username: <input type="text" placeholder="Enter Username" name="newUsername" value="<%= @new_username %>" required></p>
+                    <p>Email: <input type="text" placeholder="Enter Email" name="newEmail" value="<%= @new_email %>" required></p>
+                    <p>Password: <input type="password" placeholder="Enter Password" name="newPassword" value="<%= @new_password %>" required></p>
+                    <p><input type="submit" name="submitReg" value="Submit"></p>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

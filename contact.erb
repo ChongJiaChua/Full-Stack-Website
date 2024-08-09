@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style/style.css">  
+    <link rel ="stylesheet" href="style/contact.css">
+    <link rel ="stylesheet" href="style/base.css">
+  </head>
+
+  <%= erb :header %>
+
+  <body>
+  <% if !@form_was_submitted || @submission_error %> 
+    <h1>Customer Contact Form</h1>
+  <% end %>
+  <% if @form_was_submitted %>
+    <% if @submission_error %>
+      <p><strong class="error"><%= @submission_error %></strong></p>
+    <% else %>
+      <h1 class="success">Success, thanks for your submission!</h1>
+    <% end %>
+  <% end %>
+  <% if !@form_was_submitted || @submission_error %> 
+    <form method="post" action="/contact"> 
+
+        <label>Select which category best describes your problem</label>
+
+        <select name="Select a problem">
+	        <option value="Popcorn">Popcorn</option>
+	        <option value="Account information">Account information</option>
+            <option value="Behaviour of user">Behaviour of user</option>
+            <option value="Story content">Story Content</option>
+            <option value="Other" selected>Other</option>
+        </select>
+        <br>
+
+        <textarea class="largetextinput" name="comments" rows="10" cols="50" placeholder="Desribe your problem here..."></textarea>
+
+        <p>Customer Email address: <input type="text" name="email_address" value="<%= h @email_address %>" placeholder="example1@gmail.com"/>
+        <% if !@email_address_error.nil? %>
+            <br /><strong class="error"><%= @email_address_error %></strong>
+        <% end %>
+        </p>
+
+        
+
+        <input type="submit" value="Submit"> 
+    </form>
+  <% end %>
+  </body>
+</html>

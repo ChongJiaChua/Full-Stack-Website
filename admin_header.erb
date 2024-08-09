@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title> <%= @title %></title>
+    <link rel="stylesheet" href="style/header.css">
+</head>
+<section id="admin_header">
+    <h1> Peak District Prose - Admin</h1>
+</section>
+
+<nav class="navbar">
+        <a href="/adminDashboard">Home</a>
+        <a href="/admin_settings">User Settings</a>
+        <a href="/admin_ban">Ban Users</a>
+        <% if session["logged_in"] == true %>
+        <% @profile = session["user"] %>
+        <% if @profile %>
+          <% user = User.first(user_name: @profile) %>
+          <a href="./payment">Popcorn: <%= user.popcorn %></a>
+        <% end %>
+
+        <div class="dropdown">
+          <button class="dropbtn">Profile
+          </button>
+          <div class="dropdown-content">
+            <a href="./profile">My Profile</a>
+            <form action="/logout" method="get">
+              <input id ="logout_btn" type="submit" value="Logout">
+            </form>
+          </div>
+          <% else %>
+            <a href="./login" id="login_btn">Login</a>
+          <% end %>
+          </div>
+
+        </div>
+      </div>
+</nav>
+
+
+
+</html>

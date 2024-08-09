@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Ban a User</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <meta name = "description" content="Page for Admin to Ban User"/>
+        <link rel="stylesheet" type="text/css" href="/style/style.css">
+        <link rel="stylesheet" type="text/css" href="/style/admin_style.css">
+    </head>
+    
+    <body>
+
+    <header>
+        <%=erb :admin_header%>
+    </header>
+
+    <% if !@form_was_submitted || @submission_error %> 
+    
+    <h1>Ban User</h1>
+    
+    <form action="/admin_ban" method="post">
+        <section>
+            <div id="admin_section">
+            <h3>Fill out this short form</h3>
+                <p>Banning the user:</p>
+                <p>Username of account: <input type="text" placeholder="Enter Username" name="username" value="<%= @username %>" required></p>
+                <p>Reason for ban: <input type="text" placeholder="Enter Reason" name="ban_reason" value="<%= @ban_reason %>" required></p>
+                <p><input type="submit" value="Ban User"></p>
+            </div>
+        </section>  
+
+    </form>
+    <% end %>
+    </body>
+</html>

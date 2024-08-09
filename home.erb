@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/style/base.css">
+        <title>Home</title>
+    </head>
+    <body>
+
+        <header>
+            <%=erb :header%>
+        </header>
+
+        <%= erb :search_bar %>
+
+        <h1>Stories</h1>
+        <ul>
+            <div class="story-container">
+                <% @stories.each do |story| %>
+                <div class="story-box">
+                    <li><p><strong>Title:</strong> <a href="/reading_page?id=<%= story[:story_id] %>"><%= story[:title] %></a></p></li>
+                        <ul>
+                            <li>Genre : <%= story.genre %></li>
+                            <li>Author : <%= story.author %></li>
+                            <li>Cost : <%= story.cost %></li>
+                            <li>Likes : <%= story.likes %></li>
+                            <li>Dislikes : <%= story.dislikes %></li>
+
+                        </ul>
+                </div>
+                <% end %>
+            </div>
+        </ul>
+
+    </body>
+</html>

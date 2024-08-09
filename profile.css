@@ -1,0 +1,102 @@
+
+.main-section {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.main-section img {
+  border: 1px solid black;
+}
+
+#profile {
+    padding: 10px;
+    width: 20%;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#profile h3 {
+    margin-top: 10px;
+}
+
+#profile img {
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+#follower-list {
+    text-align: center;
+    margin: 0 auto;
+
+}
+
+#follower-list th{
+    margin: 0 20px;
+}
+
+#details {
+    padding: 0 20px;
+    padding-top: 40px;
+    float: left;
+    width: 40%;
+    border-radius: 20px;
+    transform: translateY(-400);
+}
+
+#details h4 {
+    border: 1px black solid;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+#details h3 {
+    text-align: center;
+    border: 2px grey solid;
+    border-radius: 5px;
+    
+}
+
+#details label {
+    margin: 0;
+}
+#dashboard {
+    width: 40%;
+}
+
+.user-dashboard {
+    width: 75%;
+    border: 1px black solid;
+    margin-top: 20px;
+    height: 95%;
+    border-radius: 3px;
+    padding: 0 5px;
+
+}
+
+.user-dashboard th, td {
+    border: 1px black solid;
+}
+
+#liked-books td {
+    border: 1px solid black;
+}
+
+
+
+.feed-section {
+    margin: 0 100px;
+}
+
+.content {
+    border: 1px black solid;
+    min-height: 35%;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+#admin_actions div{
+  display: block;
+}

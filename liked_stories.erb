@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/style/base.css">
+        <title>Home</title>
+    </head>
+  <%= erb :header%>
+
+  <% if @liked_stories.empty? %>
+    <p>No stories liked yet.</p>
+  <% else %>
+    <h1>Liked Stories</h1>
+    <ul>
+      <% @liked_stories.each do |x| %>
+        <li> <%= x[1] %> </li>
+      <% end %>
+    </ul>
+  <% end %>
+</html>
+

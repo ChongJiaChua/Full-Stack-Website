@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/style/base.css">
+        <title>Your Story Platform</title>
+    </head>
+    <body>
+
+        <header>
+            <%= erb :header %>
+        </header>
+
+        <%= erb :search_bar %>
+
+        <h1>Competition Results</h1>
+        <h3>This is a competition between readers to see who has read the most books! At the end of every month, the reader with the most and second most number of stories read will
+        win 300 and 100 free popcorns respectively! The competition will run at the end of each month.</h3>
+        <% if @winners.any? %>
+          <h2>Winners for this month:</h2>
+          <% @winners.each do |winner| %>
+            <h3><%= winner[:username] %> with <%= winner[:count] %> stories read.</h3>
+          <% end %>
+          <% if @runner_up %>
+            <h2>Runner-up:</h2> 
+            <h3><%= @runner_up[:username] %> with <%= @runner_up[:count] %> stories read.</h3>
+          <% end %>
+        <% else %>
+          <h2>No competition results to display.</h2>
+        <% end %>
+
+    </body>
+</html>
